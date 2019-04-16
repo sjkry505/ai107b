@@ -6,17 +6,13 @@ let dy = 0.01
 
 function climb (f, x, y) {
   while (true) {
-    if (f(x+dx, y+dy) > f(x, y)) {
+    if (f(x+dx, y) > f(x, y)) {
       x += dx
-      y += dy
-    } else if (f(x-dx, y+dy) > f(x,y)) {
+    } else if (f(x-dx, y) > f(x,y)) {
       x -= dx
+    } else if (f(x, y+dy) > f(x,y)) {
       y += dy
-    } else if (f(x-dx, y-dy) > f(x,y)) {
-      x -= dx
-      y -= dy
-    } else if (f(x+dx, y-dy) > f(x,y)) {
-      x += dx
+    } else if (f(x, y-dy) > f(x,y)) {
       y -= dy
     }
     else break
